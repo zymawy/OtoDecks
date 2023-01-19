@@ -2,6 +2,9 @@
 
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="OtoDecks\Source\Gui">
+      <UniqueIdentifier>{2F459732-246E-C9D3-7781-EC7683F324AB}</UniqueIdentifier>
+    </Filter>
     <Filter Include="OtoDecks\Source">
       <UniqueIdentifier>{35A3AE94-1AB3-89C0-566C-A97F5D4E91F7}</UniqueIdentifier>
     </Filter>
@@ -616,6 +619,18 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\CustomDeckControl.cpp">
+      <Filter>OtoDecks\Source\Gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Deck.cpp">
+      <Filter>OtoDecks\Source\Gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\PlaylistComponent.cpp">
+      <Filter>OtoDecks\Source\Gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\WaveformDisplay.cpp">
+      <Filter>OtoDecks\Source\Gui</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\OutputProcessor.cpp">
       <Filter>OtoDecks\Source</Filter>
     </ClCompile>
@@ -3114,13 +3129,25 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\CustomDeckControl.h">
+      <Filter>OtoDecks\Source\Gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Deck.h">
+      <Filter>OtoDecks\Source\Gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\PlaylistComponent.h">
+      <Filter>OtoDecks\Source\Gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\WaveformDisplay.h">
+      <Filter>OtoDecks\Source\Gui</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\OutputProcessor.h">
       <Filter>OtoDecks\Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\MainComponent.h">
+    <ClInclude Include="..\..\Source\AudioPlayer.h">
       <Filter>OtoDecks\Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\AudioPlayer.h">
+    <ClInclude Include="..\..\Source\MainComponent.h">
       <Filter>OtoDecks\Source</Filter>
     </ClInclude>
     <ClInclude Include="C:\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">

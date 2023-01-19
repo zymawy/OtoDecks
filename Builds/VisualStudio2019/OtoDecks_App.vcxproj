@@ -141,6 +141,10 @@
     <Lib/>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\CustomDeckControl.cpp"/>
+    <ClCompile Include="..\..\Source\Deck.cpp"/>
+    <ClCompile Include="..\..\Source\PlaylistComponent.cpp"/>
+    <ClCompile Include="..\..\Source\WaveformDisplay.cpp"/>
     <ClCompile Include="..\..\Source\OutputProcessor.cpp"/>
     <ClCompile Include="..\..\Source\AudioPlayer.cpp"/>
     <ClCompile Include="..\..\Source\MainComponent.cpp"/>
@@ -2471,9 +2475,13 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_opengl.cpp"/>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\CustomDeckControl.h"/>
+    <ClInclude Include="..\..\Source\Deck.h"/>
+    <ClInclude Include="..\..\Source\PlaylistComponent.h"/>
+    <ClInclude Include="..\..\Source\WaveformDisplay.h"/>
     <ClInclude Include="..\..\Source\OutputProcessor.h"/>
-    <ClInclude Include="..\..\Source\MainComponent.h"/>
     <ClInclude Include="..\..\Source\AudioPlayer.h"/>
+    <ClInclude Include="..\..\Source\MainComponent.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>

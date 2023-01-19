@@ -9,6 +9,7 @@
 */
 
 #include "OutputProcessor.h"
+#include <JuceHeader.h>
 
 #include <iostream>
 #include <sstream>
@@ -19,6 +20,7 @@ OutputProcessor::OutputProcessor() {}
 
 
 void OutputProcessor::print(std::string taxt, std::string by) {
+    DBG(by + " " + taxt);
     std::cout << by << taxt << std::endl;
 }
 

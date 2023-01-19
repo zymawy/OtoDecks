@@ -10,15 +10,16 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "AudioPlayer.h"
+#include "Deck.h"
+#include "PlaylistComponent.h"
+
 
 //==============================================================================
 /*
     This component lives inside our window, and this is where you should put all
     your controls and content.
 */
-class MainComponent   : public AudioAppComponent, 
-                        public Button::Listener, 
-                        public Slider::Listener
+class MainComponent   : public AudioAppComponent
 {
 public:
     //==============================================================================
@@ -34,31 +35,34 @@ public:
     void paint (Graphics& g) override;
     void resized() override;
 
-    /** implement Button::Listener */
-    void buttonClicked (Button *) override;
-
-    /** implement Slider::Listener */
-    void sliderValueChanged (Slider *slider) override;
-
 private:
     //==============================================================================
     // Your private member variables go here...
-
-    TextButton playButton{"PLAY"};
-    TextButton stopButton{"STOP"};
-    TextButton loadButton{"LOAD"};
-  
-    Slider volSlider; 
-    Slider speedSlider;
-    Slider posSlider; 
     
-    Random rand;
+    /**
+     * @member - the AudioFormatManager that provides and manages audio formats
+     */
+    AudioFormatManager formatManager;
+
+    /**
+     * @member - the AudioThumbnailCache used for the wave form display
+     */
+    AudioThumbnailCache thumbCache{100};
     
-    AudioPlayer playerOne;
+    AudioPlayer playerOne{formatManager};
+    
+    Deck deckOne{&playerOne,formatManager, thumbCache};
+    
+    AudioPlayer playerTwo{formatManager};
+    
+    Deck deckTwo{&playerTwo,formatManager, thumbCache};
+    
+    MixerAudioSource mixerSource;
 
-    // https://docs.juce.com/master/classFileChooser.html#ac888983e4abdd8401ba7d6124ae64ff3
-
-    juce::FileChooser fChooser{"Select a file..."};
+    /**
+     * @member - The music library
+     */
+    PlaylistComponent playlistComponent{&deckOne, &deckTwo};
 
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainComponent)

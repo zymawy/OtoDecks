@@ -11,13 +11,16 @@
 #include "AudioPlayer.h"
 #include "OutputProcessor.h"
 
-AudioPlayer::AudioPlayer() {};
+AudioPlayer::AudioPlayer(AudioFormatManager& _formatManager)
+: formatManager(_formatManager)
+{
+
+
+}
+
 AudioPlayer::~AudioPlayer() {};
 
 void AudioPlayer::prepareToPlay (int samplesPerBlockExpected, double sampleRate) {
-    
-    formatManager.registerBasicFormats();
-
 
     transportSource.prepareToPlay(
         samplesPerBlockExpected,
@@ -25,14 +28,26 @@ void AudioPlayer::prepareToPlay (int samplesPerBlockExpected, double sampleRate)
     resampleSource.prepareToPlay(
         samplesPerBlockExpected,
         sampleRate);
+    reverbSource.prepareToPlay(samplesPerBlockExpected, sampleRate);
     
 };
 void AudioPlayer::getNextAudioBlock (const AudioSourceChannelInfo& bufferToFill) {
-    resampleSource.getNextAudioBlock(bufferToFill);
+    // Switch to the reverb source if reverb is active
+        if (reverb == true)
+        {
+            reverbSource.getNextAudioBlock(bufferToFill);
+        }
+        // Otherwise use the regular resample source
+        else
+        {
+            resampleSource.getNextAudioBlock(bufferToFill);
+        }
+//    resampleSource.getNextAudioBlock(bufferToFill);
 };
 void AudioPlayer::releaseResources() {
     transportSource.releaseResources();
     resampleSource.releaseResources();
+    reverbSource.releaseResources();
 };
 
 void AudioPlayer::loadURL(URL audioURL) {
@@ -83,3 +98,20 @@ void AudioPlayer::start() {
 void AudioPlayer::stop() {
     transportSource.stop();
 };
+
+
+
+double AudioPlayer::getPositionRelative()
+{
+    // Calculate the % of the track played at the current time stamp
+    return transportSource.getCurrentPosition() / transportSource.getLengthInSeconds();
+}
+
+
+
+void AudioPlayer::toggleReverb()
+{
+    // Toggle the reverb state between true and false
+    reverb = !reverb;
+}
+

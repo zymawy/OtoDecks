@@ -4,13 +4,29 @@
               jucerFormatVersion="1">
   <MAINGROUP id="mcJZqF" name="OtoDecks">
     <GROUP id="{356C603F-01E1-55B2-02A0-F2D89D9A59E6}" name="Source">
+      <GROUP id="{855B7608-0C31-2DCE-3697-D7FEDEB18C14}" name="Gui">
+        <FILE id="KDF7ok" name="CustomDeckControl.cpp" compile="1" resource="0"
+              file="Source/CustomDeckControl.cpp"/>
+        <FILE id="FRsIFZ" name="CustomDeckControl.h" compile="0" resource="0"
+              file="Source/CustomDeckControl.h"/>
+        <FILE id="SHFc8Q" name="Deck.cpp" compile="1" resource="0" file="Source/Deck.cpp"/>
+        <FILE id="gmulNH" name="Deck.h" compile="0" resource="0" file="Source/Deck.h"/>
+        <FILE id="QwBMqU" name="PlaylistComponent.cpp" compile="1" resource="0"
+              file="Source/PlaylistComponent.cpp"/>
+        <FILE id="J8dFLp" name="PlaylistComponent.h" compile="0" resource="0"
+              file="Source/PlaylistComponent.h"/>
+        <FILE id="Topbtu" name="WaveformDisplay.cpp" compile="1" resource="0"
+              file="Source/WaveformDisplay.cpp"/>
+        <FILE id="Rkcbkv" name="WaveformDisplay.h" compile="0" resource="0"
+              file="Source/WaveformDisplay.h"/>
+      </GROUP>
       <FILE id="hM8oaj" name="OutputProcessor.cpp" compile="1" resource="0"
             file="Source/OutputProcessor.cpp"/>
       <FILE id="xQHXso" name="OutputProcessor.h" compile="0" resource="0"
             file="Source/OutputProcessor.h"/>
-      <FILE id="nBjnc1" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
       <FILE id="JXRJfA" name="AudioPlayer.cpp" compile="1" resource="0" file="Source/AudioPlayer.cpp"/>
       <FILE id="aVumt7" name="AudioPlayer.h" compile="0" resource="0" file="Source/AudioPlayer.h"/>
+      <FILE id="nBjnc1" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
       <FILE id="OJ0Xrs" name="MainComponent.cpp" compile="1" resource="0"
             file="Source/MainComponent.cpp"/>
       <FILE id="CoVVKI" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
