@@ -13,7 +13,12 @@
 #include <JuceHeader.h>
 #include "AudioPlayer.h"
 #include "WaveformDisplay.h"
-#include "CustomDeckControl.h"
+#include "ReverbController.h"
+#include "FustionV1.h"
+#include "FustionV2.h"
+#include "FustionV3.h"
+#include "FustionV4.h"
+
 
 //==============================================================================
 /*
@@ -60,20 +65,25 @@ private:
     TextButton playButton{"PLAY"};
     TextButton stopButton{"STOP"};
     TextButton loadButton{"LOAD"};
-    
-    CustomDeckControl reverbButton{"REVERB"};
+    ReverbController reverbButton{"Reverb"};
+    ToggleButton toogle{"Toogle"};
   
     Slider volSlider;
+    Label volLabel;
     Slider speedSlider;
     Slider posSlider;
     
     AudioPlayer* player;
     
     WaveformDisplay waveformDisplay;
-    
-    // https://docs.juce.com/master/classFileChooser.html#ac888983e4abdd8401ba7d6124ae64ff3
 
     juce::FileChooser fChooser{"Select a file..."};
+
+    
+    FusionLookV1 fusionLookV1;
+    FusionLookV2 fusionLookV2;
+    FusionLookV3 fusionLookV3;
+    FusionLookV4 fusionLookV4;
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Deck)
 };

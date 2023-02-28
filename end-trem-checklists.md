@@ -14,47 +14,47 @@
 - R3: Implementation of a music library component which allows the user to manage their
   music library
   
-  - R3A: Component allows the user to add files to their library
+  - R3A: Component allows the user to add files to their library []
   
-  - R3B: Component parses and displays meta data such as filename and song length
+  - R3B: Component parses and displays meta data such as filename and song length [✅]
   
-  - R3C: Component allows the user to search for files
+  - R3C: Component allows the user to search for files []
   
-  - R3D: Component allows the user to load files from the library into a deck
+  - R3D: Component allows the user to load files from the library into a deck [✅]
   
   - R3E: The music library persists so that it is restored when the user exits then restarts the
-    application
+    application [✅]
 
 - R4: Implementation of a complete custom GUI
   
   - R4A: GUI layout is significantly different from the basic DeckGUI shown in class, with
-    extra controls
+    extra controls [✅]
   
-  - R4B: GUI layout includes the custom Component from R2
+  - R4B: GUI layout includes the custom Component from R2 []
   
-  - R4C: GUI layout includes the music library component fro R3
+  - R4C: GUI layout includes the music library component fro R3 []
 
 ## Code style and technique
 
 - C1: Code is organised into header (.h or .hpp) files and implementation files (.cpp). Header
   files contain class interface definitions, cpp files contain implementations of class function
-  memenbers.
+  memenbers.[✅]
 
 - C2: Class interfaces in header files have comments for each public function describing
-  purpose, inputs and outputs
+  purpose, inputs and outputs [🔻]
 
-- C3: Code is laid out clearly with consistent indenting
+- C3: Code is laid out clearly with consistent indenting [✅]
 
 - C4: Code is organised into functions with clear inputs and outputs and a clear, limited
-  purpose
+  purpose [✅]
 
 - C5: Code is stateless wherever possible – functions make use of data passing in preference
-  to global or class scope data.
+  to global or class scope data. [✅]
 
-- C6: Functions, classes and variables have meaningful names, with a consistent naming style
+- C6: Functions, classes and variables have meaningful names, with a consistent naming style [✅]
 
 - C7: Functions do not change the state of class or global scope variables unless that is the
-  explicit purpose of a function (e.g. a setter)
+  explicit purpose of a function (e.g. a setter) [✅]
 
 ### Documentation
 

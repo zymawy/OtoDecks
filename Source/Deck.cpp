@@ -12,6 +12,7 @@
 #include "Deck.h"
 #include "OutputProcessor.h"
 
+
 //==============================================================================
 Deck::Deck(AudioPlayer* _player,
            AudioFormatManager& formatManagerToUse,
@@ -19,16 +20,26 @@ Deck::Deck(AudioPlayer* _player,
            ): player(_player),
               waveformDisplay(formatManagerToUse, cacheToUse)
 {
-    
-    // In your constructor, you should add any child components, and
-    // initialise any special settings that your component needs.
 
+//    setLookAndFeel (&fusionLookV1);
+    setLookAndFeel(&fusionLookV3);
+    
+    volSlider.setSliderStyle (Slider::Rotary);
+    volSlider.setTextBoxStyle (Slider::TextBoxBelow, true, 0, 0);
+    
+//    volSlider.setLookAndFeel(&fusionLookV1);
+
+    volLabel.attachToComponent(&volSlider, true);
+    
+    speedSlider.setSliderStyle (Slider::Rotary);
+    speedSlider.setTextBoxStyle (Slider::NoTextBox, false, 0, 0);
     
     // buttons
     addAndMakeVisible(playButton);
     addAndMakeVisible(stopButton);
     addAndMakeVisible(loadButton);
     addAndMakeVisible(reverbButton);
+    addAndMakeVisible(toogle);
     
     
     addAndMakeVisible(waveformDisplay);
@@ -71,37 +82,21 @@ Deck::~Deck()
 }
 
 void Deck::paint (juce::Graphics& g)
-{
-    /* This demo code just fills the component's background and
-       draws some placeholder text to get you started.
-
-       You should replace everything in this method with your own
-       drawing code..
-    */
-
-    g.fillAll (getLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId));   // clear the background
-
-    g.setColour (juce::Colours::grey);
-    g.drawRect (getLocalBounds(), 1);   // draw an outline around the component
-
-    g.setColour (juce::Colours::white);
-    g.setFont (14.0f);
-    g.drawText ("Deck", getLocalBounds(),
-                juce::Justification::centred, true);   // draw some placeholder text
-}
+{}
 
 void Deck::resized()
 {
     // This method is where you should set the bounds of any child
     // components that your component contains..
     
-    double rowH = getHeight() / 9;
+    double rowH = getHeight() / 10;
     // buttons
     playButton.setBounds(0, 0, getWidth(), rowH);
-    stopButton.setBounds(0, rowH, getWidth(), rowH);
+    stopButton.setBounds(0, rowH * 1.1, getWidth(), rowH);
     
     // sliders
-    reverbButton.setBounds(0, rowH * 2, getWidth(), rowH);
+    toogle.setBounds(0, rowH * 2, getWidth(), rowH);
+//    reverbButton.setBounds(0, rowH * 2, getWidth(), rowH);
     
     volSlider.setBounds(0, rowH * 3, getWidth(), rowH);
     speedSlider.setBounds(0, rowH * 4, getWidth(), rowH);
@@ -111,6 +106,21 @@ void Deck::resized()
     
     loadButton.setBounds(0, rowH * 8, getWidth(), rowH);
 
+//    playButton.setColour(juce::TextButton::buttonColourId, juce::Colours::yellowgreen);
+//    stopButton.setColour(juce::TextButton::buttonColourId, juce::Colours::rebeccapurple);
+//    loadButton.setColour(juce::TextButton::buttonColourId, juce::Colours::lightseagreen);
+    
+//    waveformDisplay.setBounds(0, rowH*5, getWidth(), rowH*3);
+//    posSlider.setBounds(rowH*2,rowH*4, getWidth(), rowH);
+    
+//        auto border = 4;
+
+//        auto area = getLocalBounds();
+
+//        auto dialArea = area.removeFromTop (area.getHeight() / 3);
+
+//    volSlider.setBounds (dialArea.removeFromLeft (dialArea.getWidth() / 2).reduced (border));
+//    speedSlider.setBounds (dialArea.reduced (border));
 }
 
 
@@ -149,7 +159,6 @@ void Deck::buttonClicked(Button* button)
         fChooser.launchAsync(fileChooserFlags, [this](const FileChooser& chooser)
         {
             auto chosenFile = chooser.getResult();
-//            loadURL(URL{chosenFile});
             player->loadURL(URL{chosenFile});
             
             waveformDisplay.loadURL(URL{chosenFile});

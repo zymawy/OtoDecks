@@ -2,6 +2,12 @@
 
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="OtoDecks\Source\Gui\Features">
+      <UniqueIdentifier>{D5FC1984-B213-90D3-B0CA-12576CFC719E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OtoDecks\Source\Gui\FusionLooks">
+      <UniqueIdentifier>{C247F976-9900-36F1-98FB-BB3F07A92F40}</UniqueIdentifier>
+    </Filter>
     <Filter Include="OtoDecks\Source\Gui">
       <UniqueIdentifier>{2F459732-246E-C9D3-7781-EC7683F324AB}</UniqueIdentifier>
     </Filter>
@@ -619,8 +625,14 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\CustomDeckControl.cpp">
-      <Filter>OtoDecks\Source\Gui</Filter>
+    <ClCompile Include="..\..\Source\ReverbController.cpp">
+      <Filter>OtoDecks\Source\Gui\Features</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Themes.cpp">
+      <Filter>OtoDecks\Source\Gui\Features</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BaseFusion.cpp">
+      <Filter>OtoDecks\Source\Gui\FusionLooks</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Deck.cpp">
       <Filter>OtoDecks\Source\Gui</Filter>
@@ -3129,8 +3141,26 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Source\CustomDeckControl.h">
-      <Filter>OtoDecks\Source\Gui</Filter>
+    <ClInclude Include="..\..\Source\ReverbController.h">
+      <Filter>OtoDecks\Source\Gui\Features</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Themes.h">
+      <Filter>OtoDecks\Source\Gui\Features</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BaseFusion.h">
+      <Filter>OtoDecks\Source\Gui\FusionLooks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\FustionV1.h">
+      <Filter>OtoDecks\Source\Gui\FusionLooks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\FustionV2.h">
+      <Filter>OtoDecks\Source\Gui\FusionLooks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\FustionV3.h">
+      <Filter>OtoDecks\Source\Gui\FusionLooks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\FustionV4.h">
+      <Filter>OtoDecks\Source\Gui\FusionLooks</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Deck.h">
       <Filter>OtoDecks\Source\Gui</Filter>

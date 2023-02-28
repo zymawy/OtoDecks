@@ -8,13 +8,11 @@
 
 #include "MainComponent.h"
 
+
 //==============================================================================
 MainComponent::MainComponent()
 {
-    // Make sure you set the size of the component after
-    // you add any child components.
-    setSize(1000, 1000);
-
+    setSize (800, 600);
     // Some platforms require permissions to open input channels so request that here
     if (RuntimePermissions::isRequired (RuntimePermissions::recordAudio)
         && ! RuntimePermissions::isGranted (RuntimePermissions::recordAudio))
@@ -40,27 +38,36 @@ MainComponent::~MainComponent()
 {
     // This shuts down the audio device and clears the audio source.
     shutdownAudio();
+    
 }
 
 //==============================================================================
 void MainComponent::prepareToPlay (int samplesPerBlockExpected, double sampleRate)
 {
     
+    // decks for the playback
     playerOne.prepareToPlay(samplesPerBlockExpected, sampleRate);
     playerTwo.prepareToPlay(samplesPerBlockExpected, sampleRate);
     
+    
+    //mixer for the playback
     mixerSource.prepareToPlay(samplesPerBlockExpected, sampleRate);
+    
+    //Parallel
     mixerSource.addInputSource(&playerOne, false);
     mixerSource.addInputSource(&playerTwo, false);
 
  }
 void MainComponent::getNextAudioBlock (const AudioSourceChannelInfo& bufferToFill)
 {
+    // audio blocks for the mixer
     mixerSource.getNextAudioBlock(bufferToFill);
 }
 
 void MainComponent::releaseResources()
 {
+    // This will be called when the audio device stops, or when it is being
+    // restarted due to a setting change.
     playerOne.releaseResources();
     playerTwo.releaseResources();
     mixerSource.releaseResources();
@@ -69,16 +76,13 @@ void MainComponent::releaseResources()
 //==============================================================================
 void MainComponent::paint (Graphics& g)
 {
-    // (Our component is opaque, so we must completely fill the background with a solid colour)
-    g.fillAll (getLookAndFeel().findColour (ResizableWindow::backgroundColourId));
-
-    // You can add your drawing code here!
+    g.fillAll(Colour(33, 146, 255));
 }
 
 void MainComponent::resized()
 {
+    
     deckOne.setBounds(0, 0, getWidth() / 2, getHeight() / 2);
     deckTwo.setBounds(getWidth() / 2, 0, getWidth() / 2, getHeight() / 2);
-    
     playlistComponent.setBounds(0, getHeight() / 2, getWidth(), getHeight() / 2);
 }

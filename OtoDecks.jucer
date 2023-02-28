@@ -5,10 +5,22 @@
   <MAINGROUP id="mcJZqF" name="OtoDecks">
     <GROUP id="{356C603F-01E1-55B2-02A0-F2D89D9A59E6}" name="Source">
       <GROUP id="{855B7608-0C31-2DCE-3697-D7FEDEB18C14}" name="Gui">
-        <FILE id="KDF7ok" name="CustomDeckControl.cpp" compile="1" resource="0"
-              file="Source/CustomDeckControl.cpp"/>
-        <FILE id="FRsIFZ" name="CustomDeckControl.h" compile="0" resource="0"
-              file="Source/CustomDeckControl.h"/>
+        <GROUP id="{D3B88B04-4537-8BC2-CAA1-54C88C49F9C2}" name="Features">
+          <FILE id="KDF7ok" name="ReverbController.cpp" compile="1" resource="0"
+                file="Source/ReverbController.cpp"/>
+          <FILE id="FRsIFZ" name="ReverbController.h" compile="0" resource="0"
+                file="Source/ReverbController.h"/>
+          <FILE id="dNXZ9u" name="Themes.cpp" compile="1" resource="0" file="Source/Themes.cpp"/>
+          <FILE id="pXKV2z" name="Themes.h" compile="0" resource="0" file="Source/Themes.h"/>
+        </GROUP>
+        <GROUP id="{2F6ACACC-D6CE-D798-7497-7D623607074D}" name="FusionLooks">
+          <FILE id="FpzZuR" name="BaseFusion.cpp" compile="1" resource="0" file="Source/BaseFusion.cpp"/>
+          <FILE id="z6b38V" name="BaseFusion.h" compile="0" resource="0" file="Source/BaseFusion.h"/>
+          <FILE id="kpVTuG" name="FustionV1.h" compile="0" resource="0" file="Source/FustionV1.h"/>
+          <FILE id="iNrT7B" name="FustionV2.h" compile="0" resource="0" file="Source/FustionV2.h"/>
+          <FILE id="FjVYQh" name="FustionV3.h" compile="0" resource="0" file="Source/FustionV3.h"/>
+          <FILE id="kMD42r" name="FustionV4.h" compile="0" resource="0" file="Source/FustionV4.h"/>
+        </GROUP>
         <FILE id="SHFc8Q" name="Deck.cpp" compile="1" resource="0" file="Source/Deck.cpp"/>
         <FILE id="gmulNH" name="Deck.h" compile="0" resource="0" file="Source/Deck.h"/>
         <FILE id="QwBMqU" name="PlaylistComponent.cpp" compile="1" resource="0"
