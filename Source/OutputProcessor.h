@@ -12,6 +12,8 @@
 #include <stdio.h>
 #include <fstream>
 #include <string>
+#include <JuceHeader.h>
+
 
 class OutputProcessor {
 public:
@@ -23,6 +25,7 @@ public:
 
 //    A function that prints out the string that is passed to it.
     static void debug(std::string input);
+    static void debugJuce(juce::String input);
 
 //    A function that prints out the string that is passed to it.
     static void info(std::string input, std::string icon = "💁🏾‍♂️");

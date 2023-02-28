@@ -75,3 +75,19 @@
   - ON Double Click Rest Filter To It's Own Value 
   
   - ON Buttons/Components Hovered, Show Info About it, or the purpose  of it 
+
+LookAndFeel_V4
+
+![](/Users/ironside/Library/Application%20Support/marktext/images/2023-01-20-04-53-08-image.png)
+
+*LookAndFeel_V3*
+
+![](/Users/ironside/Library/Application%20Support/marktext/images/2023-01-20-04-49-54-image.png)
+
+LookAndFeel_V2
+
+![](/Users/ironside/Library/Application%20Support/marktext/images/2023-01-20-04-51-04-image.png)
+
+*LookAndFeel_V1*
+
+![](/Users/ironside/Library/Application%20Support/marktext/images/2023-01-20-04-52-32-image.png)

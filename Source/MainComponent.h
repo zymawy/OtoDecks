@@ -12,6 +12,10 @@
 #include "AudioPlayer.h"
 #include "Deck.h"
 #include "PlaylistComponent.h"
+#include "FustionV1.h"
+#include "FustionV2.h"
+#include "FustionV3.h"
+#include "FustionV4.h"
 
 
 //==============================================================================
@@ -63,6 +67,11 @@ private:
      * @member - The music library
      */
     PlaylistComponent playlistComponent{&deckOne, &deckTwo};
+    
+    FusionLookV1 fusionLookV1;
+    FusionLookV2 fusionLookV2;
+    FusionLookV3 fusionLookV3;
+    FusionLookV4 fusionLookV4;
 
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainComponent)

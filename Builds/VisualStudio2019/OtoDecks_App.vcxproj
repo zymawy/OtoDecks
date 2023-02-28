@@ -141,7 +141,9 @@
     <Lib/>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\CustomDeckControl.cpp"/>
+    <ClCompile Include="..\..\Source\ReverbController.cpp"/>
+    <ClCompile Include="..\..\Source\Themes.cpp"/>
+    <ClCompile Include="..\..\Source\BaseFusion.cpp"/>
     <ClCompile Include="..\..\Source\Deck.cpp"/>
     <ClCompile Include="..\..\Source\PlaylistComponent.cpp"/>
     <ClCompile Include="..\..\Source\WaveformDisplay.cpp"/>
@@ -2475,7 +2477,13 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_opengl.cpp"/>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Source\CustomDeckControl.h"/>
+    <ClInclude Include="..\..\Source\ReverbController.h"/>
+    <ClInclude Include="..\..\Source\Themes.h"/>
+    <ClInclude Include="..\..\Source\BaseFusion.h"/>
+    <ClInclude Include="..\..\Source\FustionV1.h"/>
+    <ClInclude Include="..\..\Source\FustionV2.h"/>
+    <ClInclude Include="..\..\Source\FustionV3.h"/>
+    <ClInclude Include="..\..\Source\FustionV4.h"/>
     <ClInclude Include="..\..\Source\Deck.h"/>
     <ClInclude Include="..\..\Source\PlaylistComponent.h"/>
     <ClInclude Include="..\..\Source\WaveformDisplay.h"/>

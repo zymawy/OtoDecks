@@ -12,16 +12,14 @@
 #include "OutputProcessor.h"
 
 AudioPlayer::AudioPlayer(AudioFormatManager& _formatManager)
-: formatManager(_formatManager)
-{
+: formatManager(_formatManager){};
 
-
-}
 
 AudioPlayer::~AudioPlayer() {};
 
 void AudioPlayer::prepareToPlay (int samplesPerBlockExpected, double sampleRate) {
 
+    
     transportSource.prepareToPlay(
         samplesPerBlockExpected,
         sampleRate);
@@ -31,18 +29,13 @@ void AudioPlayer::prepareToPlay (int samplesPerBlockExpected, double sampleRate)
     reverbSource.prepareToPlay(samplesPerBlockExpected, sampleRate);
     
 };
+
 void AudioPlayer::getNextAudioBlock (const AudioSourceChannelInfo& bufferToFill) {
-    // Switch to the reverb source if reverb is active
-        if (reverb == true)
-        {
+    
+        if (reverb)
             reverbSource.getNextAudioBlock(bufferToFill);
-        }
-        // Otherwise use the regular resample source
         else
-        {
             resampleSource.getNextAudioBlock(bufferToFill);
-        }
-//    resampleSource.getNextAudioBlock(bufferToFill);
 };
 void AudioPlayer::releaseResources() {
     transportSource.releaseResources();

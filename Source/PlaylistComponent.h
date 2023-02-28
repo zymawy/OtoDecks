@@ -16,9 +16,11 @@
 /*
 */
 class PlaylistComponent : public Component,
-                          public TableListBoxModel,
-                          public Button::Listener,
-                          public FileDragAndDropTarget
+                        public TableListBoxModel,
+                        public Button::Listener,
+                        public TextEditor::Listener,
+                        public Timer,
+                        public FileDragAndDropTarget
 {
 public:
     /**
@@ -101,12 +103,36 @@ public:
      * @returns {void} - Results in files being available to process
      */
     void filesDropped(const StringArray &files, int x, int y) override;
+    
+    void timerCallback() override;
+
+    void loadFromLibrary(int identifier);
+    
+    bool fileExist(String& trackName);
+    
+    void removeTrack(int trackId);
+    
+    
+    String getTrackLength(File musicFile);
+    
+    void textEditorTextChanged(TextEditor& textEditor) override;
+    
+    void dataRemove(int index);
+    
+    void addFileToLibrary();
+    
+    void extractData(String title,
+        File file,
+        URL path,
+        String length);
+    
+    void clearData();
+    
+    void loadTrack();
+    
 
 private:
     TableListBox tableComponent;       // The music library table
-    std::vector<String> trackTitles;   // Vector storing the track titles
-    std::vector<String> trackLengths;  // Vector storing the track lengths
-
     /**
      Get the length of a track in minutes and seconds, in the MM:SS format
      @param {String} file - Path to the file that we want to get the time length of
@@ -120,22 +146,38 @@ private:
     // The two decks, their respective GUIs, so the playlist can push tracks to them
     // These are initialised through the constructor
     Deck *deckOne;
+    int deckOneSelectedTrackId;
     Deck *deckTwo;
+    int deckTwoSelectedTrackId;
 
-    // Data members for the search functionality
+    FileChooser fChooser{"Select a file..."};
+
     Label searchTitle;
-    Label searchInput;
+    
+    TextEditor searchable{ "Search..." };
+    
+    TextButton addButton{ "ADD" };
+    
+    
+    Array<String> trackTitles;
+    Array<File> trackFiles;
+    Array<String> trackLengths;
+    Array<URL> trackPaths;
+    
 
-    /**
-     Searches the music library for a specific search term
-     * @param {String} searchTerm - the string the user has entered into the search box
-     * @returns {void} - the search results are stored directly to the private data member "searchResults"
-     */
-    void searchLibraryFor(const String &searchTerm);
-    std::vector<int> searchResults;
+    Array<String> trackTitleSearch;
+    Array<File> trackFileSearch;
+    Array<String> trackLengthSearch;
+    Array<URL> trackPathSearch;
 
     // OS-agnostic path to store the music library as a text file on disk
-    File library{File::getSpecialLocation(juce::File::userMusicDirectory).getFullPathName() + "/library.txt"};
+    File library{File::getSpecialLocation(juce::File::userMusicDirectory).getFullPathName() + "/tracks.txt"};
+    
+    FusionLookV1 fusionLookV1;
+    FusionLookV2 fusionLookV2;
+    FusionLookV3 fusionLookV3;
+    FusionLookV4 fusionLookV4;
+
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PlaylistComponent)
 };

@@ -29,6 +29,14 @@ void OutputProcessor::debug(std::string taxt) {
     print(taxt, "debug🐛> ");
 }
 
+
+
+void OutputProcessor::debugJuce(juce::String taxt) {
+//    print(taxt, );
+    std::cout << "debug🐛> " << taxt << std::endl;
+
+}
+
 void OutputProcessor::info(std::string taxt, std::string icon) {
 //    std::cout.width(50);
 

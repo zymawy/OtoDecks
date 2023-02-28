@@ -44,15 +44,11 @@ public:
     void toggleReverb();
     
 private:
+    bool reverb{false};
     AudioFormatManager& formatManager;
     std::unique_ptr<AudioFormatReaderSource> readerSource;
     AudioTransportSource transportSource;
     ResamplingAudioSource resampleSource{&transportSource, false, 2};
-    
-    /**
-     * @var {bool} - tracks the state of whether reverb should be applied or not
-    */
-    bool reverb{false};
     ReverbAudioSource reverbSource{&resampleSource, false};
     
 };
